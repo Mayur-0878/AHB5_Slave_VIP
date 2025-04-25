@@ -1,7 +1,7 @@
 class AHB5_Slave_Transaction;
 
   mailbox Gen_to_Driv;
-  logic Hreadyout;
+  rand logic Hreadyout;
   logic Hresp;
   logic[31:0]Hrdata;
   logic Hselx;
@@ -14,6 +14,10 @@ class AHB5_Slave_Transaction;
   logic [1:0]Htrans;
   logic Hmastlock;
   logic Hready;
+
+  task display;
+    $display("[%0t] Hreadyout=%0d  Hresp=%0d in generator",$time,Hreadyout,Hresp);
+  endtask 
   
    
 

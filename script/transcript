@@ -1,0 +1,78 @@
+# vsim -c -assertdebug -msgmode both work.tb_opt 
+# Start time: 18:44:52 on Apr 25,2025
+# //  Questa Sim
+# //  Version 2021.2_1 linux May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.AHB5_Slave_top_sv_unit(fast)
+# Loading work.AHB5_Slave_Top(fast)
+# Loading work.AHB5_Slave_Interface(fast__2)
+# Loading work.test(fast)
+# Loading work.AHB5_Slave_Interface(fast)
+#                    0         8
+#                    0         9
+#                    0        10
+#                    0        11
+#                    0        12
+#                    0        13
+#                    0        14
+#                    0        15
+#                    0        16
+#                    0        17
+#                    0        18
+# [15]inside of driver  Hready=1 Hwdata=x Hwrite=x  Temphaddr=0  Temphwrite=x Temphwdata=0
+# [25]inside of driver  Hready=1 Hwdata=x Hwrite=x  Temphaddr=0  Temphwrite=x Temphwdata=0
+# [25],Dummy previous address=5 hwdata=26 hwrite=1 || current address=4 hwdata=23 hwrite=0
+# [35]inside of driver  Hready=1 Hwdata=26 Hwrite=1  Temphaddr=0  Temphwrite=x Temphwdata=0
+# [35],when write is zero Dummy previous address=4 hwdata=23 hwrite=0 || current address=6 hwdata=17 hwrite=1
+# [55]inside of driver  Hready=1 Hwdata=26 Hwrite=0  Temphaddr=5  Temphwrite=1 Temphwdata=26
+# [55],Dummy previous address=6 hwdata=17 hwrite=1 || current address=4 hwdata=18 hwrite=1
+# [75]inside of driver  Hready=1 Hwdata=17 Hwrite=1  Temphaddr=4  Temphwrite=0 Temphwdata=26
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 75 ns  Iteration: 1  Process: /AHB5_Slave_top_sv_unit::AHB5_Slave_Environment::run/#FORK#37_f662d2b File: ../sv/AHB5_Slave_Driver.sv Line: 57
+# [75] hrdata=0
+# [75],Dummy previous address=4 hwdata=18 hwrite=1 || current address=4 hwdata=16 hwrite=1
+# [85]inside of driver  Hready=1 Hwdata=18 Hwrite=1  Temphaddr=6  Temphwrite=1 Temphwdata=17
+# [85],Dummy previous address=4 hwdata=16 hwrite=1 || current address=9 hwdata=48 hwrite=1
+# [115]inside of driver  Hready=1 Hwdata=16 Hwrite=1  Temphaddr=4  Temphwrite=1 Temphwdata=18
+# [115],Dummy previous address=9 hwdata=48 hwrite=1 || current address=8 hwdata=18 hwrite=0
+# [175]inside of driver  Hready=1 Hwdata=48 Hwrite=1  Temphaddr=4  Temphwrite=1 Temphwdata=16
+# [175],when write is zero Dummy previous address=8 hwdata=18 hwrite=0 || current address=9 hwdata=35 hwrite=1
+# [205]inside of driver  Hready=1 Hwdata=48 Hwrite=0  Temphaddr=9  Temphwrite=1 Temphwdata=48
+# [205],Dummy previous address=9 hwdata=35 hwrite=1 || current address=9 hwdata=27 hwrite=1
+# [215]inside of driver  Hready=1 Hwdata=35 Hwrite=1  Temphaddr=8  Temphwrite=0 Temphwdata=48
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 215 ns  Iteration: 1  Process: /AHB5_Slave_top_sv_unit::AHB5_Slave_Environment::run/#FORK#37_f662d2b File: ../sv/AHB5_Slave_Driver.sv Line: 57
+# [215] hrdata=0
+# [215],Dummy previous address=9 hwdata=27 hwrite=1 || current address=3 hwdata=41 hwrite=0
+# [225]inside of driver  Hready=1 Hwdata=27 Hwrite=1  Temphaddr=9  Temphwrite=1 Temphwdata=35
+# [225],when write is zero Dummy previous address=3 hwdata=41 hwrite=0 || current address=7 hwdata=29 hwrite=1
+# [245]inside of driver  Hready=1 Hwdata=27 Hwrite=0  Temphaddr=9  Temphwrite=1 Temphwdata=27
+# [245],Dummy previous address=7 hwdata=29 hwrite=1 || current address=5 hwdata=49 hwrite=0
+# [255]inside of driver  Hready=1 Hwdata=29 Hwrite=1  Temphaddr=3  Temphwrite=0 Temphwdata=27
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 255 ns  Iteration: 1  Process: /AHB5_Slave_top_sv_unit::AHB5_Slave_Environment::run/#FORK#37_f662d2b File: ../sv/AHB5_Slave_Driver.sv Line: 57
+# [255] hrdata=0
+# [255],when write is zero Dummy previous address=5 hwdata=49 hwrite=0 || current address=3 hwdata=31 hwrite=0
+# [285]inside of driver  Hready=1 Hwdata=29 Hwrite=0  Temphaddr=7  Temphwrite=1 Temphwdata=29
+# [285],when write is zero Dummy previous address=3 hwdata=31 hwrite=0 || current address=7 hwdata=35 hwrite=1
+# [295]inside of driver  Hready=1 Hwdata=29 Hwrite=0  Temphaddr=5  Temphwrite=0 Temphwdata=29
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 295 ns  Iteration: 1  Process: /AHB5_Slave_top_sv_unit::AHB5_Slave_Environment::run/#FORK#37_f662d2b File: ../sv/AHB5_Slave_Driver.sv Line: 57
+# [295] hrdata=0
+# [295],Dummy previous address=7 hwdata=35 hwrite=1 || current address=4 hwdata=32 hwrite=1
+# ** Note: $finish    : ../top/AHB5_Slave_top.sv(12)
+#    Time: 300 ns  Iteration: 0  Instance: /AHB5_Slave_Top
+# End time: 18:45:02 on Apr 25,2025, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 4

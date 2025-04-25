@@ -13,7 +13,7 @@ class AHB5_Slave_Monitor;
     forever @(posedge Slave_intf.Hclk)begin
          Tran1=new();
      
-     Montr_to_Scorbd.put(Tran1);
+  /*   Montr_to_Scorbd.put(Tran1);
      Tran1.Hready=Slave_intf.Hready;
      Tran1.Hselx=Slave_intf.Hselx ;  
      Tran1.Hwdata=Slave_intf.Hwdata ;  
@@ -24,8 +24,10 @@ class AHB5_Slave_Monitor;
      Tran1.Hprot=Slave_intf.Hprot;  
      Tran1.Htrans=Slave_intf.Htrans;  
      Tran1.Hmastlock=Slave_intf.Hmastlock;
-    $display("[%0t] Hselx=%0d Haddr=%0h Hwdata=%0h Hwrite=%0d Hsize=%0d Hburst=%0d Hprot=%0d Htrans=%0d Hmastlock=%0d Hready=%0d in Monitor",$time,Tran1.Hselx,Tran1.Haddr,Tran1.Hwdata,Tran1.Hwrite,Tran1.Hsize,Tran1.Hburst,Tran1.Hprot,Tran1.Htrans,Tran1.Hmastlock,Tran1.Hready);
-
+     Tran1.Hreadyout=Slave_intf.Hreadyout;
+     Tran1.Hresp=Slave_intf.Hresp;
+   // $display("[%0t] Hselx=%0d Haddr=%0h Hwdata=%0h Hwrite=%0d Hsize=%0d Hburst=%0d Hprot=%0d Htrans=%0d Hmastlock=%0d Hready=%0d Hreadyout=%0d Hresp=%0d in Monitor",$time,Tran1.Hselx,Tran1.Haddr,Tran1.Hwdata,Tran1.Hwrite,Tran1.Hsize,Tran1.Hburst,Tran1.Hprot,Tran1.Htrans,Tran1.Hmastlock,Tran1.Hready,Tran1.Hreadyout,Tran1.Hresp);
+*/
     end
   endtask
 

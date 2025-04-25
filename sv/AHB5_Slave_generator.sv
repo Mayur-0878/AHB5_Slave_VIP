@@ -12,6 +12,7 @@ class AHB5_Slave_Generator;
     repeat(count)begin
     Trans=new();
     void'(Trans.randomize());
+    Trans.display;
     Gen_to_drive.put(Trans);
     #5;
     end
