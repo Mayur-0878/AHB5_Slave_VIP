@@ -11,7 +11,6 @@
 class AHB5_Slave_Environment;
 
   AHB5_Slave_Generator Gen;
-  AHB5_Slave_configure configr;
   AHB5_Slave_Dummy_master Dummy;
   AHB5_Slave_Transaction Trans,Tran1;
   AHB5_Slave_Driver Drive;
@@ -22,23 +21,22 @@ class AHB5_Slave_Environment;
   mailbox Montr_to_Scorbd=new(4);
   virtual AHB5_Slave_Interface Slave_intf;
   
+  
   function new(virtual AHB5_Slave_Interface Slave_intf);
     Gen=new(Gen_to_drive,100);
-    Dummy=new(Slave_intf,20);
+    Dummy=new(Slave_intf,80);
     Drive=new(Slave_intf,Gen_to_drive);
     Montr=new(Slave_intf,Montr_to_Scorbd);
     Scrbd=new(Montr_to_Scorbd);
-    configr=new();
   endfunction
   
   task run;
     fork
-      //Gen.Generate();
+     // Gen.Generate();
       Drive.response();
       Dummy.Generate;
       Montr.monitor();
       Scrbd.check();
-      configr.configmem();
     join
   endtask
   

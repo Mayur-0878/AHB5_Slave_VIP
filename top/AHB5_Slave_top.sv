@@ -9,6 +9,6 @@ module AHB5_Slave_Top;
   initial begin
     $dumpfile("mb.vcd");
     $dumpvars(0,AHB5_Slave_Top);
-    #300 $finish;
+    #500 $finish;
   end
 endmodule

@@ -12,8 +12,11 @@ class  AHB5_Slave_Dummy_master;
   rand logic Hmastlock;
   rand logic Hselx;
 
-  constraint c1{0<Haddr;Haddr<10;}
-  constraint c2{15<Hwdata;Hwdata<50;}
+
+  //`typedef enum(IDLE,BUSY,NONSEQ,SEQ)Htrans;
+
+  //constraint c1{0<Haddr;Haddr<10;}
+  //constraint c2{15<Hwdata;Hwdata<50;}
   
   //this signal for next clock
   logic [31:0]Dummy_TempHaddr;
@@ -22,29 +25,28 @@ class  AHB5_Slave_Dummy_master;
   logic [31:0]Dummy_TempHrdata;
 
   function new(virtual AHB5_Slave_Interface Slave_intf,int count);
+   $display("inside driver");
     this.count=count;
+$display(count);
     this.Slave_intf=Slave_intf;
   endfunction
 
+
+
+
   task Generate;
-    
-  forever @(posedge Slave_intf.Hclk) fork    
-    
-      transfer();
+       repeat(count)begin
+      @(posedge Slave_intf.Hclk)
       void'(this.randomize());
-    //  Slave_intf.Haddr<=Haddr;  
-      //Slave_intf.Hwdata <=Hwdata;  
-    //  Slave_intf.Hwrite<=Hwrite;  
-    //  Slave_intf.Hsize<=Hsize;  
-      //Slave_intf.Hburst<=Hburst;  
-      //Slave_intf.Hprot<=Hprot;  
-      //Slave_intf.Htrans<=Htrans;  
-      //Slave_intf.Hmastlock<=Hmastlock;  
-      //Slave_intf.Hselx <=Hselx;
       Slave_intf.Hready <=Hready;
-    join_any
-  
+      transfer();
+    
+end
   endtask
+
+
+
+
 
   task transfer;
     if(Hready==1)
@@ -71,7 +73,9 @@ class  AHB5_Slave_Dummy_master;
     else if(Hready==0)
       begin
       end
-  endtask  
+  endtask
+
+
    
   
 endclass
