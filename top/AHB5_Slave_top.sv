@@ -7,8 +7,8 @@ module AHB5_Slave_Top;
   test t1(Slave_intf);
   always #5 Hclk=~Hclk;
   initial begin
-    $dumpfile("mb.vcd");
-    $dumpvars(0,AHB5_Slave_Top);
-    #500 $finish;
+//    $dumpfile("mb.vcd");
+  //  $dumpvars(0,AHB5_Slave_Top);
+    #200 $finish;
   end
 endmodule

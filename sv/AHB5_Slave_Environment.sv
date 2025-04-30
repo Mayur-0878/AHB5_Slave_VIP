@@ -1,13 +1,6 @@
-`include "../sv/AHB5_Slave_Transaction.sv"
-`include "../sv/AHB5_Slave_Configuration.sv"
-`include "../sv/AHB5_Slave_generator.sv"
-`include "../sv/AHB5_Slave_Driver.sv"
-`include "../sv/AHB5_Slave_Monitor.sv"
-`include "../sv/AHB5_Slave_Scoreboard.sv"
-`include "../sve/AHB5_Slave_Dummy_master.sv"
+`include "AHB5_Slave_package.sv"
 
-
-//import AHB5_Slave_package :: *;
+import AHB5_Slave_package :: *;
 class AHB5_Slave_Environment;
 
   AHB5_Slave_Generator Gen;
@@ -16,6 +9,7 @@ class AHB5_Slave_Environment;
   AHB5_Slave_Driver Drive;
   AHB5_Slave_Driver response;
   AHB5_Slave_Monitor Montr;
+  AHB5_Slave_configure configr=new;
   AHB5_Slave_Scoreboard Scrbd;
   mailbox Gen_to_drive=new(4);
   mailbox Montr_to_Scorbd=new(4);
@@ -25,8 +19,8 @@ class AHB5_Slave_Environment;
   function new(virtual AHB5_Slave_Interface Slave_intf);
     Gen=new(Gen_to_drive,100);
     Dummy=new(Slave_intf,80);
-    Drive=new(Slave_intf,Gen_to_drive);
-    Montr=new(Slave_intf,Montr_to_Scorbd);
+    Drive=new(Slave_intf,Gen_to_drive,configr);
+    Montr=new(Slave_intf,Montr_to_Scorbd,configr);
     Scrbd=new(Montr_to_Scorbd);
   endfunction
   
@@ -34,10 +28,10 @@ class AHB5_Slave_Environment;
     fork
      // Gen.Generate();
       Drive.response();
-      Dummy.Generate;
+//      Dummy.Generate;
       Montr.monitor();
       Scrbd.check();
-    join
+    join_any
   endtask
   
 endclass 
